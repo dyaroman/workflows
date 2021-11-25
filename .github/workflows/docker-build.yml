@@ -12,6 +12,7 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
+
       - name: login to docker hub
         uses: docker/login-action@v1
         with:
@@ -22,7 +23,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: $GITHUB_REPOSITORY
+          images: ${{ github.repository }}
           flavor: latest=true
           tags: type=sha
 
