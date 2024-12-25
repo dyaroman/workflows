@@ -40,8 +40,8 @@ jobs:
 
       - name: pull new docker image
         run: ssh cloud 'cd ${{ inputs.path }} &&
-          docker-compose pull ${{ inputs.service }} &&
-          docker-compose up --no-deps -d --force-recreate ${{ inputs.service }}'
+          docker compose pull ${{ inputs.service }} &&
+          docker compose up --no-deps -d --force-recreate ${{ inputs.service }}'
 
       - name: remove all dangling doker images
         run: ssh cloud 'docker image prune -af'
